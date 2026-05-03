@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIDZ - UPLOADER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="center-screen">
+            <div class="w-full max-w-2xl">
+                
+                <header class="text-center mb-6">
+                    <h1 class="text-3xl uppercase font-black">HIDz UPLOADER</h1>
+                    <p class="text-xs font-bold tracking-widest text-gray-500">CLOUD STORAGE v2.0</p>
+                </header>
+
+                <!-- UPLOADER SECTION -->
+                <section id="uploader-section" class="hard-box p-8 hard-shadow-static anim-pop">
+                    <div class="stats-badge">⚡ UPLOAD FILE • Uguu • Ikyy CDN</div>
+                    
+                    <!-- Upload Area (Drop Zone) -->
+                    <div id="drop-zone" class="upload-area" style="border: 3px dashed var(--black); border-radius: 0; padding: 40px 20px; text-align: center; cursor: pointer; background: var(--white); margin-bottom: 20px; transition: all 0.2s;">
+                        <div style="font-size: 48px; margin-bottom: 10px;">📁</div>
+                        <div class="text-sm font-bold">Pilih file atau tarik ke sini</div>
+                        <div id="file-name" class="text-xs text-gray-500 mt-2"></div>
+                    </div>
+                    
+                    <input type="file" id="file-input" hidden>
+                    
+                    <!-- Host Selection -->
+                    <div class="mb-4">
+                        <label class="text-xs font-bold uppercase block mb-2">Pilih Host Storage</label>
+                        <select id="host-select" class="upload-btn" style="cursor: pointer;">
+                            <option value="uguu">💧 Uguu (Temporary - 30 days)</option>
+                            <option value="cdn">🚀 Ikyy CDN (Premium - Permanent)</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Upload Button -->
+                    <div class="action-grid">
+                        <button onclick="selectFile()" class="action-btn primary">📂 PILIH FILE</button>
+                        <button onclick="uploadFile()" id="upload-btn" class="action-btn" disabled>📤 UPLOAD SEKARANG</button>
+                    </div>
+                    
+                    <!-- Progress Bar -->
+                    <div id="progress-container" class="mt-6" style="display: none;">
+                        <div class="flex justify-between text-xs mb-1">
+                            <span id="progress-status">Mengupload...</span>
+                            <span id="progress-percent">0%</span>
+                        </div>
+                        <div class="progress-bar-bg" style="background: var(--gray-200); height: 8px; border: 2px solid var(--black);">
+                            <div id="progress-bar-fill" style="width: 0%; height: 100%; background: var(--black); transition: width 0.3s;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Result -->
+                    <div id="result-container" class="mt-6" style="display: none;">
+                        <div class="endpoint-card">
+                            <div class="endpoint-header" id="result-header">UPLOAD SUCCESS</div>
+                            <div class="endpoint-body p-4">
+                                <div id="result-url" class="text-sm" style="word-break: break-all;"></div>
+                                <div class="flex gap-2 mt-4">
+                                    <button onclick="copyUrl()" class="action-btn" style="flex: 1;">📋 COPY</button>
+                                    <button onclick="openUrl()" class="action-btn primary" style="flex: 1;">🔗 BUKA LINK</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Error -->
+                    <div id="error-container" class="mt-6" style="display: none;">
+                        <div class="error-box" id="error-message"></div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <footer class="app-footer">
+            <div class="footer-content">
+                <p class="footer-text">Credit By HidzY</p>
+                <p class="footer-copyright">© 2026 UPLOADER SIMPLE</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
